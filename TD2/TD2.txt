@@ -1,0 +1,9 @@
+source	: http://www.macg.co/aapl/2017/01/resultats-financiers-t1-2017-le-vert-dans-la-pomme-97266
+date	: 31/01
+
+Le graphique est tiré d’un article du site MacG, publié suite à la présentation des résultats financiers d’Apple pour le 1er trimestre 2017.
+
+Ce graphique compare l’évolution du chiffre d’affaires et sa croissance depuis 2010. 
+La courbe principale représente l’évolution du chiffre d’affaires en milliards de dollars et la courbe secondaire représente l’évolution de la croissance du chiffre d’affaires.
+L’échelle pour la courbe principale semble bien choisie. Cependant l’échelle de la seconde courbe est beaucoup trop large, ce qui rend difficile la lecture de l’évolution de la croissance chiffre d’affaires.
+Les couleurs sont bien distinctes : le bleu et le orange se distinguent bien. (Les couleurs ont surement du être choisie pour être en accord avec la charte graphique du site.)
