@@ -1,0 +1,34 @@
+---
+title: "TD4-exo"
+author: "Quentin Blondel"
+date: "14/02/17"
+output: pdf_document
+---
+
+Chargement de la librairie ggplot2 :
+
+```{r}
+library(ggplot2);
+```
+
+Chargement des données de lynx.csv dans le répertoire data et affichage du début du tableau :
+
+```{r}
+lynx <- read.csv("data/lynx.csv")
+lynx$X<-NULL
+head(lynx);
+```
+
+Construction du plot du nombre de lynx en fonction des années :
+
+```{r}
+ggplot(data = lynx, aes(x=time, y=lynx)) + 
+  geom_point() + 
+  geom_line() +
+  theme_bw() + 
+  xlab("Temps (années)") + 
+  ylab("Nombre de lynx") + 
+  theme_bw();
+```
+
+On constate une très grande variation de la population depuis le XIXème siècle avec pour chaque décennie un pic, puis une diminution massive de la population.
