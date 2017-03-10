@@ -68,6 +68,7 @@ experiment(n=1E6) %>%
 ```
 
 ```{r}
+# ...
 library(gridExtra);
 
 Toscane <- function(faces=6, n=400);
