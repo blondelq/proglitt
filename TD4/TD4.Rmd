@@ -37,10 +37,15 @@ ggplot(data=pressure, aes(x=temperature, y=pressure)) +
     geom_point() +
     geom_line() +
     xlab("Temperature (deg C)") +
-    ylab("Pressure (mm of Hg)");
+    ylab("Pressure (mm of Hg)") +
+    theme_bw();
 ```
 
 We can associate the size and color of points to other variables.
+
+```{r}
+mtcars
+```
 
 ```{r}
 ggplot(data=mtcars, aes(x=disp, y=hp, size=mpg, color=wt)) + 
@@ -51,6 +56,10 @@ Let's see the list of all aesthetics accepted by **geom_point()**:
 http://docs.ggplot2.org/current/geom_point.html
 
 Let's plot a histogram:
+
+```{r}
+cars
+```
 
 ```{r}
 str(cars);
@@ -77,5 +86,5 @@ ggplot(cars, aes(x=1, y=speed)) + geom_boxplot() + geom_point(y=mean(cars$speed)
 Using facets to separate data.
 
 ```{r}
-ggplot(mtcars, aes(x=hp, y=mpg)) + facet_wrap(~gear) + geom_point();
+ggplot(mtcars, aes(x=hp, y=mpg, color=as.factor(gear))) + geom_point() + facet_wrap(~gear) ;
 ```

@@ -1,0 +1,74 @@
+---
+title: "TD6"
+author: "Quentin BLONDEL"
+date: "10 mars 2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Analyse des lancés de dés
+
+Appel des librairies :
+```{r}
+library(dplyr);
+library(ggplot2);
+```
+
+### Fonction lancé de dés
+```{r}
+dice <- function(faces = 6, n=100)
+{
+  sample(x=seq(from = 1, to = faces, by = 1), size=n, replace = TRUE);
+}
+
+dice(6,400);
+```
+
+### Fonction pour lancer 3 dés
+```{r}
+experiment <- function(faces=6, n=100)
+{
+  dice1 <- dice(faces,n);
+  dice2 <- dice(faces,n);
+  dice3 <- dice(faces,n);
+  
+  data.frame(Dice1 = dice1,
+             Dice2 = dice2,
+             Dice3 = dice3)
+}
+```
+
+### Somme des trois dés dans une nouvelle colonne "Sum"
+```{r}
+# 400 lancés pour un dé à 6 faces
+experiment(6,400) %>% mutate(Sum = Dice1 + Dice2 + Dice3)
+```
+
+### Comptage
+```{r}
+# On place le tableau précédent dans une variable df02
+nb <- 1E6;
+experiment(n=nb) %>% mutate(Sum = Dice1 + Dice2 + Dice3) -> df02;
+
+df02 %>% group_by(Sum) %>% summarise(N=n()) %>% mutate(P=N/nb) %>% ggplot(aes(x=as.factor(Sum), y=P)) + geom_point();
+```
+
+### Histogramme
+```{r}
+experiment(n=1E6) %>% 
+  mutate(Sum = Dice1 + Dice2 + Dice3) %>%
+  ggplot(aes(x=as.factor(Sum))) + 
+    geom_bar(aes(y=(..count..)/sum(..count..)), width=.3) + 
+    xlab("Valeur de la somme") + ylab("Fréquence") + 
+    ylim(0,NA) + 
+    theme_bw();
+```
+
+```{r}
+library(gridExtra);
+
+Toscane <- function(faces=6, n=400);
+```
