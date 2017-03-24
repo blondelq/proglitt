@@ -1,0 +1,54 @@
+Problème : décision à prendre en milieu incertain
+Data Science
+
+connaissance à travers des observations
+-> inférer pour prendre une décision
+
+=> construire un modèle (représentation abstraite de la réalité)
+
+Réalité				|		Modèle
+Expériences :			|	Espace de probabilité
+-> observations			|	
+(x1,…,xn)			|	(X1,…,Xn)
+= valeur numériques		|	= variables aléatoires (adresse correspondant à 				|	une information numérique)
+				| 	Loi d’une variable aléatoire
+				|	P(X=x)
+				|	Hypothèses :
+				|	les variables aléatoires sont indépendantes de Physiquement les expériences 	| <=	la même loi
+sont indépendantes (causalité)	|	(axiomes)
+et indifférentiables		|
+
+Ex : Duc de Toscane		EXi=P9
+résultat du jet de 3 dés	X1~B(P9)
+si 9	->	1		Sn=X1+X2+…+Xn~Bin(n,P9)
+si !=9	->	0		E Sn = n.p9
+n=taille de l’échantillon	E((1/n)Sn)=P9
+x1,…,xn
+(1/n)(x1+…+xn)
+
+				Loi des grands nombres
+				Var Xi < +infini
+				(1/n)(X1+…+Xn)->P9
+						 ^^
+				Interprété comme une variable aléatoire qui vaut 					toujours P9
+
+				Théorème de la limite centrale
+				((1/n)Sn-Ex)/sigma->N(0,1)
+				facteurs :
+				- taille de l’échantillon
+		1/racine(n)[somme(n,i=1){(Xi-EX)/sigma}]
+					      ^^    ^^
+			variable Xi est   centrée réduite
+
+Une statistique yn est une fonction des observations.
+Si le modèle est correct yn est une réalisation d’une variable aléatoire Yn.
+
+racine(n)/(p(1-p))[(1/n)(x1+…+xn)-P9]
+
+Rappel :
+X~B(p)
+EX=p
+var X = p(1-p)
+sigma = racine(p(1-p))
+
+La valeur théorique P9 est dans la partie de la bosse de l’histogramme centré en P9

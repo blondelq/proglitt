@@ -68,8 +68,30 @@ experiment(n=1E6) %>%
 ```
 
 ```{r}
-# ...
-#library(gridExtra);
+faces=6;
+n=1E6;
+experiment(faces, n) %>%
+  mutate(Sum = Dice1 + Dice2 + Dice3) %>%
+  group_by(Sum) %>%
+  summarise(N=n()) %>%
+  filter(Sum == 9) -> Sum9
+```
 
-#Toscane <- function(faces=6, n=400);
+```{r}
+faces=6;
+n=1E6;
+experiment(faces, n) %>%
+  mutate(Sum = Dice1 + Dice2 + Dice3) %>%
+  group_by(Sum) %>%
+  summarise(N=n()) %>%
+  filter(Sum == 10) -> Sum10
+```
+
+```{r}
+P9 <- Sum9/n
+P10 <- Sum10/n
+#P9 ^
+P9;
+#P10 ^
+P10;
 ```
